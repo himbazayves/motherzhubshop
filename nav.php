@@ -122,7 +122,7 @@ display: block;
 <li class="nav-item active"><a href="index.php" id="b" class="nav-link pl-0">Home</a></li>
 <li class="nav-item"><a href="Mommylicious_club.php" class="nav-link" id="b">Mommylicious club </a></li>
 <li class="nav-item"><a href="book.php"  id="b" class="nav-link">Books </a></li>
-<li class="nav-item"><a href="blog.html" id="b" class="nav-link">Blog</a></li>
+<li class="nav-item"><a href="blog.php" id="b" class="nav-link">Blog</a></li>
              
 <li class="nav-item"><a href="about.php" id="b" class="nav-link">About Us</a></li>
 <li class="nav-item"><a href="gallery.php" id="b" class="nav-link">Gallery</a></li>

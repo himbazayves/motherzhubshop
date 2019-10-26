@@ -1,18 +1,33 @@
-<?php
- include 'connection.php';
 
-if(isset($_GET['sub']))
-   {
-	$sel2 = mysqli_query($con, "SELECT * FROM sub_category WHERE sub_cathe_name='".$_GET['sub']."'");
-    
-	//$sel1 = mysqli_query($con, "SELECT * FROM publication WHERE district='".$_GET['loc']."'");
-	$fetch = mysqli_fetch_array($sel2);
-		
-		$id=$fetch['sub_cath_id'];
-	$sel3 = mysqli_query($con, "SELECT * FROM category,sub_category,product WHERE product.sub_cath_id=sub_category.sub_cath_id and category.cathe_id= sub_category.cathe_id and sub_category.sub_cath_id='$id'");
-		
+
+
+
+
+
+<?php
+@session_start();
+$conn=mysqli_connect('localhost','root','','mothezhub') or die('Connection fail');
+
 	
-    
+$product_id = $_GET['product_id'];
+
+$SelSql = "SELECT * FROM `product` WHERE product_id = $product_id";
+
+$res = mysqli_query($conn, $SelSql);
+
+$row = mysqli_fetch_assoc($res);
+
+?>
+
+
+<?php
+// Include the database configuration file
+include_once 'dbconfig.php';
+$product_name=$row['product_name'];
+
+// Get images from the database
+$query = $db->query("SELECT * FROM images WHERE product_name='$product_name' ");
+
 
 ?>
 
@@ -61,6 +76,8 @@ if(isset($_GET['sub']))
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
    
  
 
@@ -91,12 +108,7 @@ if(isset($_GET['sub']))
            
 				
 
-                <?php
-					
-                    while($fetch1 = mysqli_fetch_array($sel3))
-                        {
-                
-                  ?>
+             
                     
     		
                 <div class="grid-item ftco-animate col-sm-4">
@@ -105,17 +117,17 @@ if(isset($_GET['sub']))
 							<div class="img-wrap d-flex align-items-stretch">
                                 
                             
-                            <a  class="img-prod" class="img align-self-stretch" href="product_single.php?product_id=<?php echo $fetch1["product_id"]; ?>"> <img class="img-fluid" style="heigt:10px; width:500px" src="<?php echo $fetch1['product_picture']; ?>"> </a>
+                            <a style="cursor: pointer;" class="img-prod" class="img align-self-stretch" data-toggle="modal" data-target="#myModal"> <img class="img-fluid" style="heigt:10px; width:500px" src="<?php echo $row['product_picture']; ?>"> </a>
                         </div>
 							<div class="text pt-3 text-center">
-								<h3><?php echo $fetch1['product_name']; ?></h3>
+								<h3>Cereals</h3>
 								<span class="position mb-2">English Teacher</span>
 								<div class="faded">
 									<p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
 									<ul class="ftco-social text-center">
 
                         <li class="ftco-animate"><a  href="product.php?sub=cereals" class="btn btn-success text-dark" href="#">Order by Watsap</a></li>
-                        <li class="ftco-animate"> <a href="order.php?product_id=<?php echo $fetch1["product_id"]; ?>" class="btn btn-warning text-dark" >Order Online</a> </li>
+                        <li class="ftco-animate"> <a href="" class="btn btn-warning text-dark" >Order Online</a> </li>
 		              </ul>
 	              </div>
 							</div>
@@ -127,11 +139,74 @@ if(isset($_GET['sub']))
 
               
                 
-                <?php
-		}
-	}
-		?>
+    
             </div>
+
+            <div id="myModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+        
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+               
+              </div>
+              <div class="modal-body">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+
+                            <div class="carousel-item active">
+                         
+                         <img style="height:400px; width:400px" class="d-block w-100" src="images/bg_3.jpg" alt="First slide">
+                       
+                       
+                         </div>   
+                           
+        
+                            <?php  if($query->num_rows > 0){
+    while($row = $query->fetch_assoc()){
+        $imageURL = 'uploads/'.$row["file_name"]; ?>
+                  
+                              
+                              <div class="carousel-item">
+                         
+                                <img style="height:400px; width:400px" class="d-block w-100" src="<?php echo $imageURL; ?>" alt="First slide">
+                              
+                              
+                                </div>   
+                              <?php }
+    ?>
+    <?php }
+    ?>
+                       
+                            
+                            
+                            
+                            
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="sr-only">Next</span>
+                            </a>
+                          </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+        
+          </div>
+        </div>
+
         
          
       
@@ -190,5 +265,8 @@ $('#myModal').on('show.bs.modal', function(e) {
 
 
 
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>

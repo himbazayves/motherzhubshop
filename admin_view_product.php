@@ -11,6 +11,95 @@ $res = mysqli_query($conn, $SelSql);
 
 $row = mysqli_fetch_assoc($res);
 
+
+?>
+
+
+
+<?php
+if(isset($_POST['register'])){
+
+	
+	$product_id=$_POST['product_id'];
+	$_SESSION['product_id'] = $product_id;
+	$message="saved";
+	$_SESSION['message'] = $message;
+
+	
+
+$url="admin_view_product.php?product_id";
+
+$a=$url."=".$_SESSION['product_id'];
+    // Include the database configuration file
+    include_once 'dbconfig.php';
+    $prodname=$_POST['prodname'];
+    // File upload configuration
+    $targetDir = "uploads/";
+    $allowTypes = array('jpg','png','jpeg','gif');
+    
+    $statusMsg = $errorMsg = $insertValuesSQL = $errorUpload = $errorUploadType = '';
+    if(!empty(array_filter($_FILES['files']['name']))){
+        foreach($_FILES['files']['name'] as $key=>$val){
+            // File upload path
+            $fileName = basename($_FILES['files']['name'][$key]);
+            $targetFilePath = $targetDir . $fileName;
+            
+            // Check whether file type is valid
+            $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
+            if(in_array($fileType, $allowTypes)){
+                // Upload file to server
+                if(move_uploaded_file($_FILES["files"]["tmp_name"][$key], $targetFilePath)){
+                    // Image db insert sql
+                    $insertValuesSQL .= "('".$fileName."', NOW()),";
+                }else{
+                    $errorUpload .= $_FILES['files']['name'][$key].', ';
+                }
+            }else{
+                $errorUploadType .= $_FILES['files']['name'][$key].', ';
+            }
+        }
+        
+        if(!empty($insertValuesSQL)){
+            $insertValuesSQL = trim($insertValuesSQL,',');
+            // Insert image file name into database
+            $insert = $db->query("INSERT INTO images (id,file_name, product_name) VALUES (NULL,'$fileName','$prodname')");
+            if($insert){
+				
+				echo" <script>window.location = '$a' </script> ";
+				
+                $errorUpload = !empty($errorUpload)?'Upload Error: '.$errorUpload:'';
+                $errorUploadType = !empty($errorUploadType)?'File Type Error: '.$errorUploadType:'';
+                $errorMsg = !empty($errorUpload)?'<br/>'.$errorUpload.'<br/>'.$errorUploadType:'<br/>'.$errorUploadType;
+				$statusMsg = "Files are uploaded successfully.".$errorMsg;
+				$url="admin_view_product.php/$product_id ";
+				$b="admin_product.php";
+			
+				
+			
+				
+
+            }else{
+				echo "<script>alert('something went wrong please try again')</script>";
+				echo" <script>window.location = '$a' </script> ";
+				
+				
+				
+            }
+        }
+    }else{
+		echo 'alert("review your answer");'; 
+		
+		
+		echo" <script>window.location = '$a' </script> ";
+ 
+		echo 'alert("review your answer");'; 
+		
+       
+    }
+    
+    // Display status message
+    
+}
 ?>
 
 
@@ -83,6 +172,7 @@ $row = mysqli_fetch_assoc($res);
 								</div>
 								<div class="panel-body no-padding">
 									<table class="table table-striped">
+									
                                    
     <tr>
         <td> # product</td>
@@ -114,13 +204,36 @@ $row = mysqli_fetch_assoc($res);
         <td><a href="#" class="img-prod"><img class="img-fluid" src="<?php echo $row['product_picture']; ?>" alt="Colorlib Template"></td>
     </tr>
 
-    
     <tr>
-        <td></td>
-        <td>
-            <a href='admin_product.php' class='btn btn-primary'>Back to product list</a>
-        </td>
-    </tr>
+        <td>More Picture</td>
+		<td>
+		<?php if(isset($_POST['register'])): ?>
+       <?php if($insert): ?>
+
+	   <?php echo "yes" ?>
+
+	   <?php endif ?>
+	   <?php endif ?>
+		<form name="new_product" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" enctype="multipart/form-data" method="post">
+		<input  type="hidden"  id="orangeForm-name" class="form-control validate" value="<?php echo  $row['product_id'] ?>" name="product_id">
+		<input  type="hidden"  id="orangeForm-name" class="form-control validate" value="<?php echo  $row['product_name'] ?>" name="prodname">
+		<input  class="form-control" type="file" name="files[]" required multiple >
+
+		<button class="btn btn-block btn-primary " name="register">Create product</button>
+
+		</form>
+
+
+		
+		
+		
+		</td>
+
+	</tr>
+
+	
+    
+    
 									</table>
 								</div>
 								

@@ -1,3 +1,109 @@
+<?php
+@session_start();
+$conn=mysqli_connect('localhost','root','','mothezhub') or die('Connection fail');
+
+	
+$product_id = $_GET['product_id'];
+
+$SelSql = "SELECT * FROM `product` WHERE product_id = $product_id";
+
+$res = mysqli_query($conn, $SelSql);
+
+$row = mysqli_fetch_assoc($res);
+
+
+?>
+
+
+
+<?php
+if(isset($_POST['register'])){
+
+	
+	$product_id=$_POST['product_id'];
+	$_SESSION['product_id'] = $product_id;
+	$message="saved";
+	$_SESSION['message'] = $message;
+
+	
+
+$url="admin_more_info.php?product_id";
+
+$a=$url."=".$_SESSION['product_id'];
+    // Include the database configuration file
+    include_once 'dbconfig.php';
+    $prodname=$_POST['prodname'];
+    // File upload configuration
+    $targetDir = "uploads/";
+    $allowTypes = array('jpg','png','jpeg','gif');
+    
+    $statusMsg = $errorMsg = $insertValuesSQL = $errorUpload = $errorUploadType = '';
+    if(!empty(array_filter($_FILES['files']['name']))){
+        foreach($_FILES['files']['name'] as $key=>$val){
+            // File upload path
+            $fileName = basename($_FILES['files']['name'][$key]);
+            $targetFilePath = $targetDir . $fileName;
+            
+            // Check whether file type is valid
+            $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
+            if(in_array($fileType, $allowTypes)){
+                // Upload file to server
+                if(move_uploaded_file($_FILES["files"]["tmp_name"][$key], $targetFilePath)){
+                    // Image db insert sql
+                    $insertValuesSQL .= "('".$fileName."', NOW()),";
+                }else{
+                    $errorUpload .= $_FILES['files']['name'][$key].', ';
+                }
+            }else{
+                $errorUploadType .= $_FILES['files']['name'][$key].', ';
+            }
+        }
+        
+        if(!empty($insertValuesSQL)){
+            $insertValuesSQL = trim($insertValuesSQL,',');
+            // Insert image file name into database
+            $insert = $db->query("INSERT INTO images (id,file_name, product_name) VALUES (NULL,'$fileName','$prodname')");
+            if($insert){
+				echo "<script>alert('image added')</script>";
+				
+				echo" <script>window.location = '$a' </script> ";
+				
+                $errorUpload = !empty($errorUpload)?'Upload Error: '.$errorUpload:'';
+                $errorUploadType = !empty($errorUploadType)?'File Type Error: '.$errorUploadType:'';
+                $errorMsg = !empty($errorUpload)?'<br/>'.$errorUpload.'<br/>'.$errorUploadType:'<br/>'.$errorUploadType;
+				$statusMsg = "Files are uploaded successfully.".$errorMsg;
+				$url="admin_view_product.php/$product_id ";
+				$b="admin_product.php";
+			
+				
+			
+				
+
+            }else{
+				echo "<script>alert('something went wrong please try again')</script>";
+				echo" <script>window.location = '$a' </script> ";
+				
+				
+				
+            }
+        }
+    }else{
+		echo 'alert("review your answer");'; 
+		
+		
+		echo" <script>window.location = '$a' </script> ";
+ 
+		echo 'alert("review your answer");'; 
+		
+       
+    }
+    
+    // Display status message
+    
+}
+?>
+
+
 <!doctype html>
 <html lang="en">
 
@@ -7,8 +113,6 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	<!-- VENDOR CSS -->
-	 <!---Calling to an external Province & District autoload-->
-
 	<link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="assets/vendor/linearicons/style.css">
@@ -47,22 +151,20 @@
 			<!-- MAIN CONTENT -->
 			<div class="main-content">
 				<div class="container-fluid">
-                <?php include 'new_product.php';?>
+				
+				 
 					<!-- END OVERVIEW -->
+					
 					<div class="row">
+                    <div class="col-md-6 text-right"><a href="admin_product.php"  class="btn btn-primary">Back to product List</a></div>
+                        
+                        
 						<div class=" col-sm-12 col-lg-">
                             <!-- RECENT PURCHASES -->
-                            <div class="panel-footer">
-									<div class="row">
-                              
-										
-										<div class="col-md-6 text-right"><a href="" data-toggle="modal" data-target="#new_product" class="btn btn-primary">Add New Product</a></div>
-                                        <div> <input class="form-control border-primary" id="myInput" type="text" placeholder=" Search your product........."> </div>
-                                    </div>
-								</div>
+							
 							<div class="panel">
 								<div class="panel-heading">
-                                    <h3 class="panel-title">My products</h3>
+                                    <h3 class="panel-title">Single product(<?php echo  $row['product_name'] ?>)</h3>
                                     
 									<div class="right">
 										<button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
@@ -71,61 +173,40 @@
 								</div>
 								<div class="panel-body no-padding">
 									<table class="table table-striped">
-										<thead>
-											<tr>
-												<th>Product #</th>
-												<th>Sub category</th>
-												<th>Product</th>
-												<th>Price</th>
-												<th>Reduction</th>
-												<th>Action</th>
-											</tr>
-										</thead>
+									
+                                   
+  
 
-<?php
-$conn=mysqli_connect("localhost","root","","mothezhub");
+    <tr>
+        <td>More Picture</td>
+		<td>
+		<?php if(isset($_POST['register'])): ?>
+       <?php if($insert): ?>
+
+	   <?php echo "yes" ?>
+
+	   <?php endif ?>
+	   <?php endif ?>
+		<form name="new_product" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" enctype="multipart/form-data" method="post">
+		<input  type="hidden"  id="orangeForm-name" class="form-control validate" value="<?php echo  $row['product_id'] ?>" name="product_id">
+		<input  type="hidden"  id="orangeForm-name" class="form-control validate" value="<?php echo  $row['product_name'] ?>" name="prodname">
+		<input  class="form-control" type="file" name="files[]" multiple >
+
+		<button class="btn btn-block btn-primary " name="register">Create product</button>
+
+		</form>
 
 
+		
+		
+		
+		</td>
 
+	</tr>
 
-
-$query1=mysqli_query($conn,"select * from product,sub_category where product.sub_cath_id=sub_category.sub_cath_id") or die("selecting error");
-
-
-
-                while($row=mysqli_fetch_assoc($query1))
-                    {
-?>
-										<tbody id="myTable">
-											<tr>
-												<td> <?php echo  $row['product_id']; ?></td>
-												<td> <?php echo  $row['sub_cathe_name']; ?></td>
-
-												<td><?php echo  $row['product_name']; ?></td>
-												<td><?php echo  $row['product_price']; ?></td>
-												<td><?php echo  $row['product_reduction']; ?>%</td>
-												
-												<td>
-												<div class="btn-group">
-												<?php echo "<a href='admin_view_product.php?product_id=". $row['product_id'] ."' title='View Record' data-toggle='tooltip'><span class='glyphicon   text-warning glyphicon-eye-open'></span></a>" ?> 
-												 <?php echo "<a href='admin_product_update.php?product_id=". $row['product_id'] ."' title='Update Record' data-toggle='tooltip'><span class='glyphicon text-success glyphicon-pencil'></span></a>" ?>
-                   
-                                            
-				                                  <?php echo "<a href='admin_product_delete.php?product_id=". $row['product_id'] ."' title='Delete Record' data-toggle='tooltip'><span class='glyphicon text-danger glyphicon-trash'></span></a>" ?>
-												 
-												</div>
-												<a href="admin_more_info.php?product_id=<?php echo $row["product_id"]; ?>" class="btn btn-success">add images</a>
-												
-												</td>
-											</tr>
-											
-											
-											
-											
-										</tbody>
-<?php
-}
-?>
+	
+    
+    
 									</table>
 								</div>
 								
@@ -289,59 +370,6 @@ $(document).ready(function(){
 		}
 
 	});
-	</script>
-
-	<script>
-
-
-//<![CDATA[ 
- // array of possible countries in the same order as they appear in the country selection list 
- var categoryLists = new Array(2);
- categoryLists["empty"] = ["Select category"]; 
- 
- 
- categoryLists["babyz goods and items"]= ["room decoration and preparation","matress","duvet cover","quilt","bedding sets","bumpers","crib netting","pillow and pillow case","baby sheets"];
- categoryLists["motherlyz goods and items"]= ["pregnancy pillow","nursing pillow","bedding sets","breast pads","breast feeding pump","pregnancy and prenatal belt","feeding cover maternity"];
- categoryLists["toddlerz good and item"]= ["toddler room decoration","toddler room ornament","toddler bedding sets","toddler pillow and pillowcase"];
- categoryLists["Baby food"] = ["powdered milk", "yoghurt", "dry baby cereal and oats" ,"dessert " ,"veggies and grain flour "]; 
- categoryLists["Babys Goods and Items"] = ["jars", "veggies flour"]; 
- 
- //categorytLists["OTHERS"]= ["Other product, Specify in type Field"];
- 
- /* 
- * param selectObj - the select object which fired the on change event. 
- */ 
- function Change(selectObj) { 
- // get the index of the selected option 
- var idx = selectObj.selectedIndex; 
- // get the value of the selected option 
- var which = selectObj.options[idx].value; 
- // use the selected option value to retrieve the list of items from the countryLists array 
- cList = categoryLists[which]; 
- // get the country select element via its known id 
- var cSelect = document.getElementById("category"); 
- // remove the current options from the country select 
- var len=cSelect.options.length; 
- while (cSelect.options.length > 0) { 
- cSelect.remove(0); 
- } 
- var newOption; 
- // create new options 
- for (var i=0; i<cList.length; i++) { 
- newOption = document.createElement("option"); 
- newOption.value = cList[i];  // assumes option string and value are the same 
- newOption.text=cList[i]; 
- // add the new option 
- try { 
- cSelect.add(newOption);  // this will fail in DOM browsers but is needed for IE 
- } 
- catch (e) { 
- cSelect.appendChild(newOption); 
- } 
- } 
- } 
-
-
 	</script>
 
 </html>
