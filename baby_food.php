@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Kiddos - Free Bootstrap 4 Template by Colorlib</title>
+    <title>Mother's hub</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -22,12 +22,13 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/card.css">
   </head>
   <body>
 	  <?php include 'nav.php' ?>
     <!-- END nav -->
     
-    <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_2.jpg');">
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('images/nest/f.jpg');">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -39,101 +40,120 @@
       </div>
     </section>
 		
-		<section class="ftco-section ftco-no-pb">
+	<section class="ftco-section ftco-no-pb">
 			<div class="container">
+				
 				<div class="row">
-					
-					<div class="col-md-6 col-lg-3 ftco-animate">
-						<div class="staff">
-							<div class="img-wrap d-flex align-items-stretch">
-								<div class="img align-self-stretch" style="background-image: url(images/teacher-2.jpg);"></div>
+
+        <div style="margin-bottom:50px" class="col-md-6 col-lg-3 ftco-animate">
+						
+						<div class="card">
+							  <img src="images/nest/milk.jpg" alt="Denim Jeans" style="width:100%;height:300px">
+									<h4>Powered Milk</h4>
+                       
+
+                  <p>Visit our blog to Know how to choose the best formula milk for your Baby.</p>
+								  
+								 <a class="btn btn-default btn-secondary" href="product.php?sub=powdered milk">See More</a>
 							</div>
-							<div class="text pt-3 text-center">
-								<h3>Dry Baby Cereal & Oats </h3>
-								
-								<div class="faded">
-									<p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
-									<ul class="ftco-social text-center">
-		                <li class="ftco-animate"><a  href="product.php?sub=dry baby cereal and oats" class="btn btn-warning text-dark" >See more</a></li>
-		               
-		              </ul>
-	              </div>
+			  
+			  
+						  </div>
+
+		
+		
+
+              <div  style="margin-bottom:50px" class="col-md-6 col-lg-3 ftco-animate">
+						
+						<div class="card">
+							  <img src="images/nest/y1.jpg" alt="Denim Jeans" style="width:100%;height:300px">
+									<h4>Yogurt</h4>
+									
+								  <p>The secret is we have been there,let us guide to get the nutritious one. </p>
+								 <a class="btn  btn-secondary" href="product.php?sub=yoghurt">See More</a>
 							</div>
-						</div>
-					</div>
-					<div class="col-md-6 col-lg-3 ftco-animate">
-						<div class="staff">
-							<div class="img-wrap d-flex align-items-stretch">
-								<div class="img align-self-stretch" style="background-image: url(images/teacher-3.jpg);"></div>
+			  
+			  
+						  </div>
+
+
+              <div  style="margin-bottom:50px" class="col-md-6 col-lg-3 ftco-animate">
+						
+						<div class="card">
+							  <img src="images/nest/v4.jpg" alt="Denim Jeans" style="width:100%;height:300px">
+									<h4>Vegetable Flour</h4>
+									
+								  <p>The secret is we have been there,let us guide to get the nutritious one. </p>
+								 <a class="btn btn-default btn-secondary" href="product.php?sub=veggies and grain flour">See More</a>
 							</div>
-							<div class="text pt-3 text-center">
-								<h3>yogurt</h3>
-								
-								<div class="faded">
-									<p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
-									<ul class="ftco-social text-center">
-									<li class="ftco-animate"><a class="btn btn-warning text-dark" href="product.php?sub=yoghurt">See more</a></li>
-		              </ul>
-	              </div>
+			  
+			  
+						  </div>
+
+              
+              <div  style="margin-bottom:50px" class="col-md-6 col-lg-3 ftco-animate">
+						
+						<div class="card">
+							  <img src="images/nest/o2.jpg" alt="Denim Jeans" style="width:100%;height:300px">
+									<h4> Oats</h4>
+									
+								  <p>The secret is we have been there,let us guide to get the nutritious one. </p>
+								 <a class="btn  btn-secondary" href="product.php?sub=dry baby cereal and oats">See More</a>
 							</div>
-						</div>
-					</div>
-					<div class="col-md-6 col-lg-3 ftco-animate">
-						<div class="staff">
-							<div class="img-wrap d-flex align-items-stretch">
-								<div class="img align-self-stretch" style="background-image: url(images/teacher-4.jpg);"></div>
+			  
+			  
+						  </div>
+
+              <div  style="margin-bottom:50px" class="col-md-6 col-lg-3 ftco-animate">
+						
+						<div class="card">
+							  <img src="images/nest/cerelac.jpg" alt="Denim Jeans" style="width:100%;height:300px">
+									<h4>Dry Baby Cerelac </h4>
+									
+								   <p>The secret is we have been there,let us guide to get the nutritious one. </p>
+								 <a class="btn  btn-secondary" href="product.php?sub=dry baby cereal and oats">See More</a>
 							</div>
-							<div class="text pt-3 text-center">
-								<h3>Dessert </h3>
-							
-								<div class="faded">
-									<p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
-									<ul class="ftco-social text-center">
-									<li class="ftco-animate"><a class="btn btn-warning text-dark" href="product.php?sub=dessert">See more</a></li>
-		              </ul>
-	              </div>
+			  
+			  
+						  </div>
+
+              
+						  <div style="margin-bottom:50px" class="col-md-6 col-lg-3 ftco-animate">
+						
+						<div class="card">
+							  <img src="images/nest/d1.jpg" alt="Denim Jeans" style="width:100%;height:300px">
+									<h4>Dessert</h4>
+                  <p>The secret is we have been there,let us guide to get the nutritious one. </p>
+									
+								  
+								 <a class="btn btn-default btn-secondary"  href="product.php?sub=dessert">See More</a>
 							</div>
-						</div>
+			  
+			  
+						  </div>
+
+              
+			
+
+						
+
+
+
+             
+           
+
+
+
+             
+
+
+
 					</div>
 
-					<div class="col-md-6 col-lg-3 ftco-animate">
-						<div class="staff">
-							<div class="img-wrap d-flex align-items-stretch">
-								<div class="img align-self-stretch" style="background-image: url(images/teacher-4.jpg);"></div>
-							</div>
-							<div class="text pt-3 text-center">
-								<h3>Powered Milk </h3>
-							
-								<div class="faded">
-									<p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
-									<ul class="ftco-social text-center">
-									<li class="ftco-animate"><a class="btn btn-warning text-dark" href="product.php?sub=powdered milk">See more</a></li>
-		              </ul>
-	              </div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6 col-lg-3 ftco-animate">
-						<div class="staff">
-							<div class="img-wrap d-flex align-items-stretch">
-								<div class="img align-self-stretch" style="background-image: url(images/teacher-5.jpg);"></div>
-							</div>
-							<div class="text pt-3 text-center">
-								<h3>Veggies and Grain Flour </h3>
-								
-								<div class="faded">
-									<p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
-									<ul class="ftco-social text-center">
-									<li class="ftco-animate"><a class="btn btn-warning text-dark"  href="product.php?sub=veggies and grain flour">See more</a></li>
-		              </ul>
-	              </div>
-				  
-							</div>
-						</div>
-					</div>
+
+
 				
-					
-					
+					</div>
 				</div>
 			</div>
 		</section>

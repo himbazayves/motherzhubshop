@@ -1,5 +1,18 @@
+
 <?php
-@session_start();
+// Initialize the session
+session_start();
+ 
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+?>
+
+
+<?php
+
 $conn=mysqli_connect('localhost','root','','mothezhub') or die('Connection fail');
 
 	
@@ -108,7 +121,7 @@ $a=$url."=".$_SESSION['product_id'];
 <html lang="en">
 
 <head>
-	<title>Notifications | Klorofil - Free Bootstrap Dashboard Template</title>
+	<title>Mother's hub</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">

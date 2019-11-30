@@ -1,5 +1,6 @@
 <?php
  include 'connection.php';
+ $name=$_GET['sub'];
 
 if(isset($_GET['sub']))
    {
@@ -21,7 +22,7 @@ if(isset($_GET['sub']))
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Kiddos - Free Bootstrap 4 Template by Colorlib</title>
+  <title>Mother's hub</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
@@ -61,6 +62,9 @@ if(isset($_GET['sub']))
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/card.css">
+    
+<script type="text/javascript" src="js/textarea.js"> </script>
    
  
 
@@ -76,8 +80,8 @@ if(isset($_GET['sub']))
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate text-center">
-            <h1 class="mb-2 bread">Baby Food</h1>
-            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Baby food <i class="ion-ios-arrow-forward"></i></span></p>
+            <h1 class="mb-2 bread"><?php echo $name ?></h1>
+            <p class="breadcrumbs"><span class="mr-2"><a  href="index.php">Home <i class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a href="baby_food.php">Baby food <i class="ion-ios-arrow-forward"></i></a></span> <span><?php echo $name ?> <i class="ion-ios-arrow-forward"></i></span></p>
           </div>
         </div>
       </div>
@@ -99,29 +103,28 @@ if(isset($_GET['sub']))
                   ?>
                     
     		
-                <div class="grid-item ftco-animate col-sm-4">
-                    
-                <div class="staff">
-							<div class="img-wrap d-flex align-items-stretch">
-                                
-                            
-                            <a  class="img-prod" class="img align-self-stretch" href="product_single.php?product_id=<?php echo $fetch1["product_id"]; ?>"> <img class="img-fluid" style="heigt:10px; width:500px" src="<?php echo $fetch1['product_picture']; ?>"> </a>
-                        </div>
-							<div class="text pt-3 text-center">
-								<h3><?php echo $fetch1['product_name']; ?></h3>
-								<span class="position mb-2">English Teacher</span>
-								<div class="faded">
-									<p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
-									<ul class="ftco-social text-center">
+                <div class="grid-item ftco-animate col-sm-3">
 
-                        <li class="ftco-animate"><a  href="product.php?sub=cereals" class="btn btn-success text-dark" href="#">Order by Watsap</a></li>
-                        <li class="ftco-animate"> <a href="order.php?product_id=<?php echo $fetch1["product_id"]; ?>" class="btn btn-warning text-dark" >Order Online</a> </li>
-		              </ul>
-	              </div>
-							</div>
-						</div>
-             
+                <div style="margin-bottom:50px" class="card">
+               <a href="product_single.php?product_id=<?php echo $fetch1["product_id"]; ?>"> <img src="<?php echo $fetch1['product_picture']; ?>" alt="Denim Jeans" style="width:100%;height:300px"> </a> 
+                      <h4><?php echo $fetch1['product_name']; ?></h4>
+                      <p class="text-secondary"> <?php echo $fetch1['product_price']; ?> FRW. </p>
+                     
+                      
+
+                      <div style="padding-bottom:0px" class="btn-group" role="group" aria-label="Basic example">
+                      <a href="order.php?product_id=<?php echo $fetch1["product_id"]; ?>" class="btn btn-secondary">Order online</a>
+                      <a href="#" class="btn btn-danger">Order via watsapp</a>
+                      
+                      </div>
+                      
+                     
+                  
               </div>
+             
+			
+             
+    </div>
 
 
 

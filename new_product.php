@@ -1,56 +1,35 @@
+<style>
 
-<?php
-if(isset($_POST['register'])){
-    // Include the database configuration file
-    include_once 'dbconfig.php';
-    $prodname=$_POST['prodname'];
-    // File upload configuration
-    $targetDir = "uploads/";
-    $allowTypes = array('jpg','png','jpeg','gif');
-    
-    $statusMsg = $errorMsg = $insertValuesSQL = $errorUpload = $errorUploadType = '';
-    if(!empty(array_filter($_FILES['files']['name']))){
-        foreach($_FILES['files']['name'] as $key=>$val){
-            // File upload path
-            $fileName = basename($_FILES['files']['name'][$key]);
-            $targetFilePath = $targetDir . $fileName;
-            
-            // Check whether file type is valid
-            $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
-            if(in_array($fileType, $allowTypes)){
-                // Upload file to server
-                if(move_uploaded_file($_FILES["files"]["tmp_name"][$key], $targetFilePath)){
-                    // Image db insert sql
-                    $insertValuesSQL .= "('".$fileName."', NOW()),";
-                }else{
-                    $errorUpload .= $_FILES['files']['name'][$key].', ';
-                }
-            }else{
-                $errorUploadType .= $_FILES['files']['name'][$key].', ';
-            }
-        }
-        
-        if(!empty($insertValuesSQL)){
-            $insertValuesSQL = trim($insertValuesSQL,',');
-            // Insert image file name into database
-            $insert = $db->query("INSERT INTO images (id,file_name, product_name) VALUES (NULL,'$fileName','$prodname')");
-            if($insert){
-                $errorUpload = !empty($errorUpload)?'Upload Error: '.$errorUpload:'';
-                $errorUploadType = !empty($errorUploadType)?'File Type Error: '.$errorUploadType:'';
-                $errorMsg = !empty($errorUpload)?'<br/>'.$errorUpload.'<br/>'.$errorUploadType:'<br/>'.$errorUploadType;
-                $statusMsg = "Files are uploaded successfully.".$errorMsg;
-            }else{
-                $statusMsg = "Sorry, there was an error uploading your file.";
-            }
-        }
-    }else{
-        $statusMsg = 'Please select a file to upload.';
-    }
-    
-    // Display status message
-    echo $statusMsg;
+
+textarea {
+  height:auto;
+  max-width:600px;
+  color:#999;
+  font-weight:400;
+  font-size:30px;
+  font-family:'Ubuntu', Helvetica, Arial, sans-serif;
+  width:100%;
+  background:#fff;
+  border-radius:3px;
+  line-height:2em;
+  border:none;
+  box-shadow:0px 0px 5px 1px rgba(0,0,0,0.1);
+  padding:30px;
+  -webkit-transition: height 2s ease;
+-moz-transition: height 2s ease;
+-ms-transition: height 2s ease;
+-o-transition: height 2s ease;
+transition: height 2s ease;
 }
-?>
+
+* {
+  -webkit-font-smoothing:antialiased !important;
+}
+
+
+
+  </style>
+
 
 
 <?php
@@ -127,7 +106,7 @@ $row1=mysqli_fetch_assoc($sql01);
 $sub_cathe_id=$row1['sub_cath_id'];
 
  $sql2 = $conn->query("INSERT INTO product (product_name,product_price,product_reduction,product_description,product_picture,sub_cath_id)
-VALUES ( '$prodname','$price','$reduction','$description','".$_SESSION['front']."','$sub_cathe_id')") or die(mysql_error());
+VALUES ( '$prodname','$price','$reduction','$description','".$_SESSION['front']."','$sub_cathe_id')") or die("not saved");
 //to insert uid from company to user
  
    
@@ -165,29 +144,35 @@ else
         <div class="md-form mb-5">
          
           <label data-error="wrong" data-success="right" for="orangeForm-name">Product name</label>
-          <input type="text" id="orangeForm-name" class="form-control validate" name="prodname">
+          <input type="text" id="orangeForm-name" class="form-control validate" name="prodname" required>
           
         </div>
         <div class="md-form mb-5">
          
           <label data-error="wrong" data-success="right" for="orangeForm-email">Poduct Price</label>
-          <input type="number" id="orangeForm-email" class="form-control validate" name="price">
+          <input type="number" id="orangeForm-email" class="form-control validate" name="price" required>
          
         </div>
 
         <div class="md-form mb-5">
          
           <label data-error="wrong" data-success="right" for="orangeForm-email">Product reduction</label>
-          <input type="number" id="orangeForm-email" class="form-control validate" name="reduction">
+          <input type="number" id="orangeForm-email" class="form-control validate" name="reduction" required>
          
         </div>
 
-        <div class="md-form mb-5">
+     
          
-          <label data-error="wrong" data-success="right" for="orangeForm-email"> Product Description</label>
-          <input type="text" id="orangeForm-email" class="form-control validate" name="description">
-         
-        </div>
+        
+
+
+        <div class="md-form mb-5" ng-app="myApp">
+        <label data-error="wrong" data-success="right" for="orangeForm-email">description </label>
+<div ng-controller="AppCtrl" >
+<textarea name="description" id="TextArea" ng-model="loremIpsum"  ng-keyup="autoExpand($event)" required>
+</textarea>
+  </div>
+</div>
 
 
 
@@ -197,7 +182,7 @@ else
           
            
 
-           <select id="input-style" name="category" onChange="Change(this);" class="form-control validate">
+           <select id="input-style" name="category" onChange="Change(this);" class="form-control validate" required>
 <option value="empty">Select category</option>
 
  <option>babyz goods and items</option>
@@ -205,6 +190,7 @@ else
    <option>toddlerz good and item</option>
     <option>essential goods of motherhood</option>
     <option>Baby food</option>
+    <option>books</option>
     
 	 
  </select>
@@ -213,7 +199,7 @@ else
         <div class="md-form mb-5">
          
           <label data-error="wrong" data-success="right" for="orangeForm-email">  product sub cathegory</label>
-          <select name="sub-cat" id="category" style="width:98%;height:40px;box-shadow: 0px 0px 0.5px 0.5px dimgray;"><option value=" " type="text" class="form-control validate">Select Subcategory</option>
+          <select name="sub-cat" id="category" style="width:98%;height:40px;box-shadow: 0px 0px 0.5px 0.5px dimgray;"><option value=" " type="text" class="form-control validate" required>Select Subcategory</option>
 
            
 
@@ -230,17 +216,6 @@ else
          
         </div>
 
-        <div class="md-form mb-4">
-         
-          <label data-error="wrong" data-success="right" for="orangeForm-pass">Additional  image</label>
-
-
-        <input  class="form-control" type="file" name="files[]" multiple >
-
-           
-        </div>
-
-      </div>
       
         <button class="btn btn-block btn-primary " name="register">Create product</button>
       </div>

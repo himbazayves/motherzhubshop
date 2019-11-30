@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Kiddos - Free Bootstrap 4 Template by Colorlib</title>
+    <title>Mother's hub</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -27,13 +27,13 @@
 	  <?php include 'nav.php' ?>
     <!-- END nav -->
     
-    <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_2.jpg');">
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('images/img/bbb.png');">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate text-center">
-            <h1 class="mb-2 bread">Baby Food</h1>
-            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Baby food <i class="ion-ios-arrow-forward"></i></span></p>
+            <h1 class="mb-2 bread">Motherly Goods </h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Motherly Goods <i class="ion-ios-arrow-forward"></i></span></p>
           </div>
         </div>
       </div>
@@ -46,13 +46,13 @@
 					<div class="col-md-6 col-lg-3 ftco-animate">
 						<div class="staff">
 							<div class="img-wrap d-flex align-items-stretch">
-								<div class="img align-self-stretch" style="background-image: url(images/teacher-2.jpg);"></div>
+								<div class="img align-self-stretch" style="background-image: url(images/img/22.jpg);"></div>
 							</div>
 							<div class="text pt-3 text-center">
 								<h3>Pregnancy Pillow  </h3>
 								
 								<div class="faded">
-									<p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
+									<p>Maternity may come with pains yet quality sleep is essential for pregnancy.</p>
 									<ul class="ftco-social text-center">
 		                <li class="ftco-animate"><a  href="product.php?sub=pregnancy pillow" class="btn btn-warning text-dark" href="#">See more</a></li>
 		               
@@ -64,13 +64,13 @@
 					<div class="col-md-6 col-lg-3 ftco-animate">
 						<div class="staff">
 							<div class="img-wrap d-flex align-items-stretch">
-								<div class="img align-self-stretch" style="background-image: url(images/teacher-3.jpg);"></div>
+								<div class="img align-self-stretch" style="background-image: url(images/img/23.jpg);"></div>
 							</div>
 							<div class="text pt-3 text-center">
 								<h3>Nursing Pillow  </h3>
 								
 								<div class="faded">
-									<p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
+									<p>the early days of postpartum may be hard, cure them with an efficient support..</p>
 									<ul class="ftco-social text-center">
 									<li class="ftco-animate"><a  href="product.php?sub=nursing pillow" class="btn btn-warning text-dark" href="#">See more</a></li>
 		              </ul>
@@ -81,13 +81,13 @@
 					<div class="col-md-6 col-lg-3 ftco-animate">
 						<div class="staff">
 							<div class="img-wrap d-flex align-items-stretch">
-								<div class="img align-self-stretch" style="background-image: url(images/teacher-4.jpg);"></div>
+								<div class="img align-self-stretch" style="background-image: url(images/img/11.jpg);"></div>
 							</div>
 							<div class="text pt-3 text-center">
 								<h3>Bedding sets  </h3>
 							
 								<div class="faded">
-									<p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
+									<p>The Baby Atelier in the corner, bearing the gift of peaceful sleep for babies and peace of mind for their parents.</p>
 									<ul class="ftco-social text-center">
 									<li class="ftco-animate"><a  href="product.php?sub=bedding sets" class="btn btn-warning text-dark" href="#">See more</a></li>
 		              </ul>
@@ -98,13 +98,13 @@
 					<div class="col-md-6 col-lg-3 ftco-animate">
 						<div class="staff">
 							<div class="img-wrap d-flex align-items-stretch">
-								<div class="img align-self-stretch" style="background-image: url(images/teacher-5.jpg);"></div>
+								<div class="img align-self-stretch" style="background-image: url(images/img/bp.jpg);"></div>
 							</div>
 							<div class="text pt-3 text-center">
 								<h3>Breast Pads  </h3>
 								
 								<div class="faded">
-									<p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
+									<p>They made with the premium cotton that help to maximize the sanity and confident </p>
 									<ul class="ftco-social text-center">
 									<li class="ftco-animate"><a  href="product.php?sub=breast pads" class="btn btn-warning text-dark" href="#">See more</a></li>
 		              </ul>
@@ -112,51 +112,19 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-md-6 col-lg-3 ftco-animate">
-						<div class="staff">
-							<div class="img-wrap d-flex align-items-stretch">
-								<div class="img align-self-stretch" style="background-image: url(images/teacher-6.jpg);"></div>
-							</div>
-							<div class="text pt-3 text-center">
-								<h3>Breast Feeding pump  </h3>
-								
-								<div class="faded">
-									<p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
-									<ul class="ftco-social text-center">
-									<li class="ftco-animate"><a  href="product.php?sub=breast feeding pump" class="btn btn-warning text-dark" href="#">See more</a></li>
-		              </ul>
-	              </div>
-							</div>
-						</div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 ftco-animate">
-						<div class="staff">
-							<div class="img-wrap d-flex align-items-stretch">
-								<div class="img align-self-stretch" style="background-image: url(images/teacher-6.jpg);"></div>
-							</div>
-							<div class="text pt-3 text-center">
-								<h3>Pregnancy and prenatal Belt</h3>
-								
-								<div class="faded">
-									<p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
-									<ul class="ftco-social text-center">
-									<li class="ftco-animate"><a  href="product.php?sub=pregnancy and prenatal belt" class="btn btn-warning text-dark" href="#">See more</a></li>
-		              </ul>
-	              </div>
-							</div>
-						</div>
-                    </div>
+					
+                    
 
                     <div class="col-md-6 col-lg-3 ftco-animate">
 						<div class="staff">
 							<div class="img-wrap d-flex align-items-stretch">
-								<div class="img align-self-stretch" style="background-image: url(images/teacher-6.jpg);"></div>
+								<div class="img align-self-stretch" style="background-image: url(images/img/nc.jpg);"></div>
 							</div>
 							<div class="text pt-3 text-center">
 								<h3>Feeding Cover Maternity    </h3>
 								
 								<div class="faded">
-									<p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
+									<p>Understand the concept of dignity while breastfeeding..</p>
 									<ul class="ftco-social text-center">
 									<li class="ftco-animate"><a  href="product.php?sub=feeding cover maternity" class="btn btn-warning text-dark" href="#">See more</a></li>
 		              </ul>

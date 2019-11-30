@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Kiddos - Free Bootstrap 4 Template by Colorlib</title>
+  <title>Mother's hub</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -32,8 +32,8 @@
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate text-center">
-            <h1 class="mb-2 bread">Baby Food</h1>
-            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Baby food <i class="ion-ios-arrow-forward"></i></span></p>
+            <h1 class="mb-2 bread">Decorating Items</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Decorating Items <i class="ion-ios-arrow-forward"></i></span></p>
           </div>
         </div>
       </div>
@@ -67,7 +67,7 @@
 								<div class="img align-self-stretch" style="background-image: url(images/teacher-3.jpg);"></div>
 							</div>
 							<div class="text pt-3 text-center">
-								<h3>First Birthday outfits   </h3>
+								<h3>Birthday outfits   </h3>
 								
 								<div class="faded">
 									<p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>

@@ -84,7 +84,7 @@ if(isset($_POST['submit']))
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Kiddos - Free Bootstrap 4 Template by Colorlib</title>
+    <title>Mother's hub</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -109,7 +109,7 @@ if(isset($_POST['submit']))
 	  <?php include 'nav.php' ?>
     <!-- END nav -->
     
-    <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_2.jpg');">
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('images/img/baby_food.jpg');">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -125,6 +125,8 @@ if(isset($_POST['submit']))
 			<div class="container">
   
 				<div class="row">
+        <div class="col-lg-2">
+        </div>
 
         <?php
 
@@ -146,7 +148,7 @@ $count=$data['total']
 ?>
 
 
-          <div class="col-lg-10 ftco-animate">
+          <div class="col-lg-8 ftco-animate">
             <h2 class="mb-3"> #<?php echo $row["title"] ;?></h2>
             <p><?php echo $row["summary"] ;?></p>
             <p>
@@ -266,7 +268,8 @@ while($row1 = mysqli_fetch_assoc($query2))
 
               
                    
-
+          <div class="col-lg-2">
+        </div>
          <!-- END COL -->
         </div>
 			</div>

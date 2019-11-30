@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Kiddos - Free Bootstrap 4 Template by Colorlib</title>
+  <title>Mother's hub</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -27,13 +27,13 @@
 	  <?php include 'nav.php' ?>
     <!-- END nav -->
     
-    <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_2.jpg');">
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('images/img/ti.jpg');">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate text-center">
-            <h1 class="mb-2 bread">Baby Food</h1>
-            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Baby food <i class="ion-ios-arrow-forward"></i></span></p>
+            <h1 class="mb-2 bread">Toodler Goods</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Toodler Goods <i class="ion-ios-arrow-forward"></i></span></p>
           </div>
         </div>
       </div>
@@ -46,13 +46,15 @@
 					<div class="col-md-6 col-lg-3 ftco-animate">
 						<div class="staff">
 							<div class="img-wrap d-flex align-items-stretch">
-								<div class="img align-self-stretch" style="background-image: url(images/teacher-2.jpg);"></div>
+
+							
+								<div class="img align-self-stretch" style="background-image: url(images/img/trd.jpg);"></div>
 							</div>
 							<div class="text pt-3 text-center">
-								<h3>toddler room decoration   </h3>
+								<h3>Toddler room decoration   </h3>
 								
 								<div class="faded">
-									<p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
+									<p>inspire your kid with the warmest design.</p>
 									<ul class="ftco-social text-center">
 		                <li class="ftco-animate"><a  href="product.php?sub=toddler room decoration" class="btn btn-warning text-dark" href="#">See more</a></li>
 		               
@@ -61,27 +63,11 @@
 							</div>
 						</div>
 					</div>
+					
 					<div class="col-md-6 col-lg-3 ftco-animate">
 						<div class="staff">
 							<div class="img-wrap d-flex align-items-stretch">
-								<div class="img align-self-stretch" style="background-image: url(images/teacher-3.jpg);"></div>
-							</div>
-							<div class="text pt-3 text-center">
-								<h3>Toddler Room Ornament  </h3>
-								
-								<div class="faded">
-									<p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
-									<ul class="ftco-social text-center">
-									<li class="ftco-animate"><a  href="product.php?sub=toddler room ornament" class="btn btn-warning text-dark" >See more</a></li>
-		              </ul>
-	              </div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6 col-lg-3 ftco-animate">
-						<div class="staff">
-							<div class="img-wrap d-flex align-items-stretch">
-								<div class="img align-self-stretch" style="background-image: url(images/teacher-4.jpg);"></div>
+								<div class="img align-self-stretch" style="background-image: url(images/img/tbs.jpg);"></div>
 							</div>
 							<div class="text pt-3 text-center">
 								<h3>Toddler Bedding sets  </h3>
@@ -95,16 +81,37 @@
 							</div>
 						</div>
 					</div>
+
+
+
 					<div class="col-md-6 col-lg-3 ftco-animate">
 						<div class="staff">
 							<div class="img-wrap d-flex align-items-stretch">
-								<div class="img align-self-stretch" style="background-image: url(images/teacher-5.jpg);"></div>
+								<div class="img align-self-stretch" style="background-image: url(images/img/or.jpg);"></div>
+							</div>
+							<div class="text pt-3 text-center">
+								<h3>Toddler Room Ornament  </h3>
+								
+								<div class="faded">
+									<p>shade your little childhood by creating the lasting fingerprint.</p>
+									<ul class="ftco-social text-center">
+									<li class="ftco-animate"><a  href="product.php?sub=toddler room ornament" class="btn btn-warning text-dark" >See more</a></li>
+		              </ul>
+	              </div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-6 col-lg-3 ftco-animate">
+						<div class="staff">
+							<div class="img-wrap d-flex align-items-stretch">
+								<div class="img align-self-stretch" style="background-image: url(images/img/tpc.jpg);"></div>
 							</div>
 							<div class="text pt-3 text-center">
 								<h3>Toddler Pillow and Pillowcase   </h3>
 								
 								<div class="faded">
-									<p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
+									<p>With a customized pillow on hand, your little will feel more secured when sleeping or napping in a new environment</p>
 									<ul class="ftco-social text-center">
 									<li class="ftco-animate"><a  href="product.php?sub=toddler pillow and pillowcase" class="btn btn-warning text-dark" >See more</a></li>
 		              </ul>

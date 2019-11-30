@@ -36,7 +36,7 @@ $query = $db->query("SELECT * FROM images WHERE product_name='$product_name' ");
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Kiddos - Free Bootstrap 4 Template by Colorlib</title>
+    <title>Mother's hub</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
@@ -93,7 +93,7 @@ $query = $db->query("SELECT * FROM images WHERE product_name='$product_name' ");
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate text-center">
-            <h1 class="mb-2 bread">Baby Food</h1>
+            <h1 class="mb-2 bread">Single product</h1>
             <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Baby food <i class="ion-ios-arrow-forward"></i></span></p>
           </div>
         </div>
@@ -104,35 +104,36 @@ $query = $db->query("SELECT * FROM images WHERE product_name='$product_name' ");
 
 
 
-<div class="grid-container row">
+<div class="container row">
            
 				
 
              
                     
     		
-                <div class="grid-item ftco-animate col-sm-4">
+                <div style="margin-top:50px; margin-bottom:50px" class="col ftco-animate col-lg">
                     
-                <div class="staff">
-							<div class="img-wrap d-flex align-items-stretch">
-                                
-                            
-                            <a style="cursor: pointer;" class="img-prod" class="img align-self-stretch" data-toggle="modal" data-target="#myModal"> <img class="img-fluid" style="heigt:10px; width:500px" src="<?php echo $row['product_picture']; ?>"> </a>
-                        </div>
-							<div class="text pt-3 text-center">
-								<h3>Cereals</h3>
-								<span class="position mb-2">English Teacher</span>
-								<div class="faded">
-									<p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
-									<ul class="ftco-social text-center">
+                <a style="cursor: pointer;" class="img-prod" class="img align-self-stretch" data-toggle="modal" data-target="#myModal"> <img class="img-fluid" style="heigt:10px; width:500px" src="<?php echo $row['product_picture']; ?>"> </a>
 
-                        <li class="ftco-animate"><a  href="product.php?sub=cereals" class="btn btn-success text-dark" href="#">Order by Watsap</a></li>
-                        <li class="ftco-animate"> <a href="" class="btn btn-warning text-dark" >Order Online</a> </li>
-		              </ul>
-	              </div>
+                <div style="margin-top:50px" class="btn-group" role="group" aria-label="Basic example">
+
+                <a  href="order.php?product_id=<?php echo $row["product_id"]; ?>" class="btn btn-success text-dark" href="#">Order by Watsap</a>
+
+
+               <a href="order.php?product_id=<?php echo $row["product_id"]; ?>" class="btn btn-warning text-dark" >Order Online</a>  
+
+</div>
+ 
 							</div>
-						</div>
-             
+
+
+              <div style="margin-top:50px; margin-bottom:50px" class="col ftco-animate col-lg">
+              <h5> <?php echo $row['product_name']; ?> <h5>
+              <p> <?php echo $row['product_price']; ?> FRW.<p>
+						<p> <?php echo $row['product_description']; ?> <p>
+
+           
+            
               </div>
 
 
@@ -140,18 +141,21 @@ $query = $db->query("SELECT * FROM images WHERE product_name='$product_name' ");
               
                 
     
-            </div>
+    </div>
 
-            <div id="myModal" class="modal fade" role="dialog">
-          <div class="modal-dialog">
+            
+            
+            
+            <div style="height:50%, width:50%" id="myModal" class="modal fade" role="dialog">
+          <div style="height:50%, width:50%" class="modal-dialog">
         
             <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <div style="height:50%, width:50%" class="modal-content">
+              <div  class="modal-header">
+                <button  type="button" class="close" data-dismiss="modal">&times;</button>
                
               </div>
-              <div class="modal-body">
+              
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                             <ol class="carousel-indicators">
                               <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -162,7 +166,7 @@ $query = $db->query("SELECT * FROM images WHERE product_name='$product_name' ");
 
                             <div class="carousel-item active">
                          
-                         <img style="height:400px; width:400px" class="d-block w-100" src="images/bg_3.jpg" alt="First slide">
+                         <img style="height:400px; width:400px" class="d-block w-100" src="<?php echo $row['product_picture']; ?>" alt="First slide">
                        
                        
                          </div>   
@@ -188,7 +192,7 @@ $query = $db->query("SELECT * FROM images WHERE product_name='$product_name' ");
                             
                             
                             
-                            </div>
+                           
                             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                               <span class="sr-only">Previous</span>
@@ -199,9 +203,7 @@ $query = $db->query("SELECT * FROM images WHERE product_name='$product_name' ");
                             </a>
                           </div>
               </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
+             
             </div>
         
           </div>

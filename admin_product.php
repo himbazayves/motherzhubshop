@@ -1,8 +1,20 @@
+
+<?php
+// Initialize the session
+session_start();
+ 
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+?>
+
 <!doctype html>
 <html lang="en">
 
 <head>
-	<title>Notifications | Klorofil - Free Bootstrap Dashboard Template</title>
+	<title>Mother's hub</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -305,6 +317,7 @@ $(document).ready(function(){
  categoryLists["toddlerz good and item"]= ["toddler room decoration","toddler room ornament","toddler bedding sets","toddler pillow and pillowcase"];
  categoryLists["Baby food"] = ["powdered milk", "yoghurt", "dry baby cereal and oats" ,"dessert " ,"veggies and grain flour "]; 
  categoryLists["Babys Goods and Items"] = ["jars", "veggies flour"]; 
+ categoryLists["books"] = ["baby food cooking book ", "baby and toddler gaming books"]; 
  
  //categorytLists["OTHERS"]= ["Other product, Specify in type Field"];
  
